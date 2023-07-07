@@ -15,12 +15,12 @@ def print_board(board):
 
 def get_ship_location():
 
-    row=input('Please enter a ship row 1-6 ').upper()
+    row=input('Please choose hit zone! (1-6) ').upper()
     while row not in '123456':
-        print("Please enter a valid row ")
+        print("That's not the right choice... ")
         row=input('Please enter a ship row 1-6 ')
 
-    column=input('Please enter a ship column A-F ').upper()
+    column=input('Please enter a ship zone (A-F) ').upper()
     while column not in 'ABCDEF':
         print("Please enter a valid column ")
         column=input('Please enter a ship column A-F ')
@@ -40,3 +40,27 @@ def count_hit_ships(board):
             if column=='X':
                 count+=1
     return count
+
+create_ships(Hidden_Pattern)
+turns = 10
+while turns > 0:
+    print('Welcome to Battleships!')
+    print_board(Guess_Pattern)
+    row,column =get_ship_location()
+    if Guess_Pattern[row][column] == '-':
+        print(' Zone already nuetralized!')
+    elif Hidden_Pattern[row][column] =='X':
+        print(' THATS A HT SOLDIER!')
+        Guess_Pattern[row][column] = 'X'
+        turns -= 1
+    else:
+        print('MISS! Shoot again!')
+        Guess_Pattern[row][column] = '-'
+        turns -= 1
+    if  count_hit_ships(Guess_Pattern) == 5:
+        print("All enemies neutralized!")
+        break
+        print(' You have ' +str(turns) + 'turns remaining')
+    if turns == 0:
+        print('Game Over')
+        break
