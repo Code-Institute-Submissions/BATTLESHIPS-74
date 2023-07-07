@@ -33,7 +33,6 @@ def create_ships(board):
             ship_r, ship_cl = randint(0, 7), randint(0, 7)
         board[ship_r][ship_cl] = 'X'
 
-
 def count_hit_ships(board):
     count=0
     for row in board:
@@ -41,11 +40,3 @@ def count_hit_ships(board):
             if column=='X':
                 count+=1
     return count
-
-create_ships(Hidden_Pattern)
-#print_board(Hidden_Pattern)
-turns = 10
-while turns > 0:
-    print('Welcome to Battleships!')
-    print_board(Guess_Pattern)
-    row,column =get_ship_location()
