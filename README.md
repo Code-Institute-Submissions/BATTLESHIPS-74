@@ -5,7 +5,9 @@
 
 ## Testing 
 
+The code passes through the python validator with no issues.
 
+![Untitled](https://github.com/tomcollins2110/BATTLESHIPS/assets/104827144/56a8bb15-ebe5-418e-8529-6a21242ee897)
 
 ## Hosted
 
